@@ -3,25 +3,236 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --base-clr: #11121a;
+  --line-clr: #42434a;
+  --hover-clr: #222533;
+  --text-clr: #e6e6ef;
+  --accent-clr: #5e63ff;
+  --secondary-text-clr: #b0b3c1;
+
+  --br-clr: #42434a;
+  --br-test: 1px solid black;
+  --fr-h: 3rem;
+  --nav-h: 3.8rem;
+  --nav-s: 2.6rem;
+  --nav-i: 0.5em;
+  --sid-t: 3rem
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  color: var(--text-clr);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
+/* Code */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--base-clr);
+
+  min-height: 100lvh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr var(--fr-h);
+  grid-template-areas: 
+  "sidebar main"
+  "sidebar footer";
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+main {
+  overflow-y: auto; 
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+aside {
+  border-right: 2px solid var(--line-clr);
+  box-sizing: border-box;
+  height: 100lvh;
+  width: 250px;
+  top: 0;
+  position: sticky;
+  align-self: start;
+  grid-area: sidebar;
+  text-wrap: nowrap;
+
+  transition: 300ms ease-in;
+  overflow: hidden;
+}
+aside.close {
+  padding: 5px;
+  width: 60px;
+}
+
+aside ul {
+  list-style: none;
+}
+aside > ul {
+  height: 100lvh;
+  border: var(--);
+  
+}
+aside > ul > li:first-child {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  padding: 5px;
+  margin: 0 0 25px 0;
+}
+svg {
+  fill: var(--text-clr);
+  flex-shrink: 0;
+}
+.dropdown-btn{
+  display: flex;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+
+  border-radius: .5em;
+  padding: .85em;
+  text-decoration: none;
+  color: var(--text-clr);
+  align-items: center;
+  gap: 1em;
+
+  > svg {
+    
+    transition: 300ms ease-in
+  }
+  > svg.open {
+    transform: rotate(180deg);
+  }
+  
+}
+.dropdown-btn:hover {
+  background-color: var(--hover-clr);
+}
+
+.dropdown-btn span {
+  flex-grow: 1;
+
+  > svg {
+    flex-shrink: 0;
   }
 }
+.sub-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: 300ms ease-in-out;
+
+  > div {
+    overflow: hidden;
+
+    > li {
+      margin: 2px;
+      border-radius: 0.5rem;
+      padding: 5px 15px;
+    }
+    > li:hover {
+      background-color: var(--hover-clr);
+    }
+  }
+}
+
+.sub-menu.show {
+  grid-template-rows: 1fr;
+}
+
+
+.Profile {
+  border: var(--br-test);
+  width: calc(var(--nav-h) - var(--nav-i));
+  height: calc(var(--nav-h) - var(--nav-i));
+  border-radius: 999px;
+}
+#toggleBtn {
+  height: 2.2rem;
+  width: 2.2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: .5rem;
+  border: 1px solid var(--br-clr);
+
+  > svg {
+    transition: 300ms ease-in;
+  }
+  > svg.close {
+    transform: rotate(180deg);
+  }
+}
+#toggleBtn:hover {
+  background-color: var(--hover-clr);
+}
+
+.container{
+  border: 1px solid var(--line-clr);
+  border-radius: 1em;
+  margin-bottom: 20px;
+  padding: min(2.6em, 15%);
+  background-color: var(--base-clr);
+  
+  h2, p { margin-top: 0.7em }
+
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+.container::after,
+.container::before {
+  content: '';
+  position: absolute;
+  height: calc(100% + 3px);
+  width: calc(100% + 3px);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+
+  padding: 10px;
+  background-image: conic-gradient(from var(--angle), transparent 80%, var(--br-clr));
+  border-radius: 1em;
+
+  animation: 3s spin linear infinite;
+
+
+}
+.container::before {
+  filter: blur(0.3rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+footer {
+  background-color: var(--base-clr);
+  bottom: 0;
+  position: sticky;
+  height: var(--fr-h);
+  border-top: 1px solid var(--br-clr);
+  grid-area: footer;
+
+  z-index: 999;
+
+}
+
