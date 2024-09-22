@@ -16,7 +16,11 @@
   --nav-h: 3.8rem;
   --nav-s: 2.6rem;
   --nav-i: 0.5em;
-  --sid-t: 3rem
+  --sid-t: 3rem;
+  --nav-max-w: 250px;
+  --nav-min-w: 60px;
+  
+  --main-p: 10px;
 }
 * {
   margin: 0;
@@ -35,23 +39,22 @@ body {
   min-height: 100lvh;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: 1fr var(--fr-h);
+  grid-template-rows: 1fr;
   grid-template-areas: 
-  "sidebar main"
-  "sidebar footer";
+  "sidebar main";
 }
 
 main {
   overflow-y: auto; 
   overflow-x: hidden;
-  padding: 10px;
+  padding: var(--main-p);
 }
 
 aside {
   border-right: 2px solid var(--line-clr);
   box-sizing: border-box;
   height: 100lvh;
-  width: 250px;
+  width: var(--nav-max-w);
   top: 0;
   position: sticky;
   align-self: start;
@@ -63,7 +66,7 @@ aside {
 }
 aside.close {
   padding: 5px;
-  width: 60px;
+  width: var(--nav-min-w);
 }
 
 aside ul {
@@ -224,15 +227,70 @@ svg {
   }
 }
 
-footer {
-  background-color: var(--base-clr);
-  bottom: 0;
-  position: sticky;
-  height: var(--fr-h);
-  border-top: 1px solid var(--br-clr);
-  grid-area: footer;
 
-  z-index: 999;
+/* Glassmorphism and Background Animation */
+
+.glass-container {
+  border-radius: .85em;
+  transition: 300ms ease-in;
+  width: 100%;
+  min-height: calc(100lvh - var(--main-p) * 2 );
+  border: 1px solid var(--br-clr);
+
+  position: relative;
+  overflow: hidden;
 
 }
+.glass,
+.glass-2 
+{
+  margin: 2px 8px 0 8px;
+  width: calc(100% - 8px * 2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border:1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.glass {
+  min-height: 100px;
+}
+.glass-2 {
+  min-height: 300px;
+}
 
+.bubbles {
+  position: relative;
+  display: flex;
+
+}
+.bubbles span {
+  position: relative;
+  margin: 0 max(4px, 16px);
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  animation: bubble 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+.bubbles span:nth-child(odd) {
+  background-color: #4fc3dc;
+  box-shadow: 0 0 0 10px #4fc3dc44,
+  0 0 50px #4fc3dc,
+  0 0 100px #4fc3dc;
+}
+.bubbles span:nth-child(even) {
+  background-color: #ff2d75;
+  box-shadow: 0 0 0 10px #ff2d7544,
+  0 0 50px #ff2d75,
+  0 0 100px #ff2d75;
+}
+@keyframes bubble {
+  0% {
+    transform: translateY(calc(100lvh - var(--main-p) * 2 )) scale(0.1);
+  }
+  100% {
+    transform: translateY(calc(-10lvh - var(--main-p) * 2 )) scale(1);
+ 
+  }
+}

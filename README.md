@@ -21,3 +21,11 @@ ie whenever i find some new trick, i'll add it *WHILE* keeping it as performant 
 
  - Normal
     `npm run dev`
+
+Afterwards head towards `http://localhost:3000`
+
+### CSS Effects | Route
+ - Moving Border | /
+ - Grid-Area Sidebar | /
+ - Glassmorphism | /glass/
+ - Background Animation | /glass/
