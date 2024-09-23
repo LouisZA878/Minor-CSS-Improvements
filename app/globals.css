@@ -183,10 +183,12 @@ svg {
   margin-bottom: 20px;
   padding: min(2.6em, 15%);
   background-color: var(--base-clr);
-  
+  position: relative;
+  overflow: hidden;
+
   h2, p { margin-top: 0.7em }
 
-  position: relative;
+
 }
 
 @property --angle{
@@ -293,4 +295,21 @@ svg {
     transform: translateY(calc(-10lvh - var(--main-p) * 2 )) scale(1);
  
   }
+}
+
+/* Cursor Sparks */
+.sparks {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #0f0;
+  pointer-events: none;
+}
+
+/* Cursor Glow */
+.Glow {
+  pointer-events: none;
+  position: fixed;
+  z-index: 30;
+  transition: background 0.1s ease;
 }
