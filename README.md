@@ -29,3 +29,9 @@ Afterwards head towards `http://localhost:3000`
  - Grid-Area Sidebar | /
  - Glassmorphism | /glass/
  - Background Animation | /glass/
+ - Sparkles | /cursor/sparkles
+ - Tracking Glow | /
+
+
+### Links
+ - **Tracking Glow:**  https://lulu-dev.vercel.app/articles/creating-a-mouse-tracking-glow-effect-in-react-js
