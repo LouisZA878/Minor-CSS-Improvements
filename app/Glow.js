@@ -26,11 +26,13 @@ function Glow() {
         const y = e.clientY - rect.top; // Vertical Positioning
         
         // Add the Glow effect
-        current.style.background = `radial-gradient(150px at ${x}px ${y}px, #42434a44, transparent 80%)`;
+        current.style.background = `radial-gradient(${rect.width / 2 }px at ${x}px ${y}px, #42434a44, transparent 80%)`;
         current.style.width = `${rect.width}px`;
         current.style.height = `${rect.height}px`;
         current.style.left = `${rect.left}px`;
         current.style.top = `${rect.top}px`;
+
+        console.log(current)
       } else if (ref.current) {
         ref.current.style.background = 'none'; // Remove glow if outside of container
       }

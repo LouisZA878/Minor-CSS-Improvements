@@ -184,7 +184,6 @@ svg {
   padding: min(2.6em, 15%);
   background-color: var(--base-clr);
   position: relative;
-  overflow: hidden;
 
   h2, p { margin-top: 0.7em }
 
@@ -200,15 +199,15 @@ svg {
 .container::before {
   content: '';
   position: absolute;
-  height: calc(100% + 3px);
-  width: calc(100% + 3px);
+  height: calc(100% + 7px);
+  width: calc(100% + 7px);
   top: 50%;
   left: 50%;
   translate: -50% -50%;
   z-index: -1;
 
   padding: 10px;
-  background-image: conic-gradient(from var(--angle), transparent 80%, var(--br-clr));
+  background: conic-gradient(from var(--angle), transparent 80%, var(--br-clr));
   border-radius: 1em;
 
   animation: 3s spin linear infinite;
@@ -266,9 +265,14 @@ svg {
   display: flex;
 
 }
+
+.bubbles {
+  display: flex;
+  justify-content: space-between;
+}
 .bubbles span {
   position: relative;
-  margin: 0 max(4px, 16px);
+  margin: 0 4px;
   width: 30px;
   height: 30px;
   border-radius: 100%;
