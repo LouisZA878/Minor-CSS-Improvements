@@ -10,7 +10,6 @@ function Glow() {
       const target = e.target;
       // What 'container' will the Glow effect be used within
       const container = target.closest('.container');
-      console.log(target)
       // Check whether the container and Glowing Div exists
       if (container && ref.current) {
         

@@ -20,6 +20,7 @@ https://louisza878.github.io/Minor-CSS-Improvements/
  - Elements which look as if they Pop In/Out (shadows)
  - Background Animation
  - Cursor Sparkles
+ - Blurred => Visible Card
 
 ### Code
  - Docker
