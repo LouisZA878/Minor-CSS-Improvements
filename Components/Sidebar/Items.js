@@ -7,7 +7,9 @@ import Link from 'next/link'
 const Items = () => {
 
 const [dropStatus, setDropStatus] = useState({
-    cursor: false
+    cursor: false,
+    shadow: false,
+    card: false,
   })
 const { status, statusSwap } = useStatus()
 
@@ -58,6 +60,34 @@ const handleClick = () => {
       </div>
     </ul>
   </li>
+  <li>
+    <button
+      className="dropdown-btn"
+      onClick={() => {
+        setDropStatus(prev => {
+          return {
+            ...prev,
+            shadow: !prev.shadow
+        }
+        })
+        handleClick()
+      }}>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M160-80q-33 0-56.5-23.5T80-160v-480q0-33 23.5-56.5T160-720h80v-80q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240h-80v80q0 33-23.5 56.5T640-80H160Zm160-240h480v-480H320v480Z"/></svg>
+      <span>
+        Shadow
+      </span>
+      <svg className={dropStatus.shadow ? 'open' : ''} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+    </button>
+    <ul className={`sub-menu ${dropStatus.shadow ? 'show' : ''}`}>
+      <div>
+        <li>
+          <Link href='/shadow'>
+            Inside-Out
+          </Link>
+        </li>
+      </div>
+    </ul>
+  </li>
     <li>
     <button
       className="dropdown-btn"
@@ -69,7 +99,34 @@ const handleClick = () => {
       </span>
     </button>
     </li>
-
+    <li>
+    <button
+      className="dropdown-btn"
+      onClick={() => {
+        setDropStatus(prev => {
+          return {
+            ...prev,
+            card: !prev.card
+        }
+        })
+        handleClick()
+      }}>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm200-80v-240H200v240h200Zm80 0h280v-240H480v240ZM200-520h560v-240H200v240Z"/></svg>
+      <span>
+        Cards
+      </span>
+      <svg className={dropStatus.card ? 'open' : ''} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+    </button>
+    <ul className={`sub-menu ${dropStatus.card ? 'show' : ''}`}>
+      <div>
+        <li>
+          <Link href='/card/pop'>
+            Profile Pop
+          </Link>
+        </li>
+      </div>
+    </ul>
+  </li>
   </>
   )
 }

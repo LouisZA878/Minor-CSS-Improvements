@@ -48,6 +48,11 @@ main {
   overflow-y: auto; 
   overflow-x: hidden;
   padding: var(--main-p);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 aside {
@@ -177,6 +182,8 @@ svg {
   background-color: var(--hover-clr);
 }
 
+/* Border Animation */
+
 .container{
   border: 1px solid var(--line-clr);
   border-radius: 1em;
@@ -189,7 +196,6 @@ svg {
 
 
 }
-
 @property --angle{
   syntax: "<angle>";
   initial-value: 0deg;
@@ -248,7 +254,7 @@ svg {
   margin: 2px 8px 0 8px;
   width: calc(100% - 8px * 2);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
   border-radius: 20px;
   border:1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
@@ -263,11 +269,6 @@ svg {
 .bubbles {
   position: relative;
   display: flex;
-
-}
-
-.bubbles {
-  display: flex;
   justify-content: space-between;
 }
 .bubbles span {
@@ -276,22 +277,24 @@ svg {
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  animation: bubble 15s linear infinite;
-  animation-duration: calc(125s / var(--i));
 }
 .bubbles span:nth-child(odd) {
+  animation: bubble_up 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
   background-color: #4fc3dc;
   box-shadow: 0 0 0 10px #4fc3dc44,
   0 0 50px #4fc3dc,
   0 0 100px #4fc3dc;
 }
 .bubbles span:nth-child(even) {
+  animation: bubble_down 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
   background-color: #ff2d75;
   box-shadow: 0 0 0 10px #ff2d7544,
   0 0 50px #ff2d75,
   0 0 100px #ff2d75;
 }
-@keyframes bubble {
+@keyframes bubble_up {
   0% {
     transform: translateY(calc(100lvh - var(--main-p) * 2 )) scale(0.1);
   }
@@ -300,6 +303,16 @@ svg {
  
   }
 }
+@keyframes bubble_down {
+  0% {
+    transform: translateY(calc(-10lvh - var(--main-p) * 2 )) scale(0.1);
+  }
+  100% {
+    transform: translateY(calc(100lvh - var(--main-p) * 2 )) scale(1);
+ 
+  }
+}
+
 
 /* Cursor Sparks */
 .sparks {
@@ -317,3 +330,102 @@ svg {
   z-index: 30;
   transition: background 0.1s ease;
 }
+
+/* Shadows */
+.shadow-box-down,
+.shadow-box-up {
+  height: 200px;
+  width: 24%;
+  margin: 0 2px 0 0;
+  border: 1px solid var(--br-clr);
+  border-radius: .85em;
+}
+.shadow-box-down:hover,
+.shadow-box-up:hover {
+  box-shadow: none;
+}
+
+.shadow-box-down {
+  box-shadow: 5px 5px 5px #0a0b0f inset, 
+  -5px -5px 5px #252738 inset;
+}
+.shadow-box-up {
+  box-shadow: 5px 5px 5px #0a0b0f, 
+  -5px -5px 5px #252738;
+}
+
+/* Cards */
+.hover-pop-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  border: 1px solid var(--br-clr);
+
+  > ul {
+    border: 1px solid var(--br-clr);
+    border-radius: .65rem;
+
+
+    overflow: hidden;
+    cursor: pointer;
+    
+    transition: 300ms ;
+    position: relative;
+    
+    margin: 0 4px;
+    width: 250px;
+    height: 200px;
+
+    > li {
+      position: absolute;
+      transition: 300ms;
+      width: 100%;
+    }
+    > li:first-child {
+      height: 100%;
+      top: 0;
+      z-index: -3;
+      border-radius: .65rem .65rem 0 0;
+      object-fit: cover;
+      filter: blur(8px);
+      background-position: center;
+      background-repeat: no-repeat;
+      
+
+    }
+    > li:nth-child(2) {
+      height: 60px;
+      bottom: 0;
+      z-index: -2;
+      border-radius: 1rem 1rem .65rem .65rem ;
+
+      background-color: white;
+    }
+    > li:nth-child(3) {
+      position: absolute;
+      z-index: -1;
+
+      bottom: 60px;
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+
+      box-shadow: 12px 12px white;
+
+      background-color: transparent;
+    }
+  }
+  > ul:hover {
+    height: 300px;
+
+    > li:first-child {
+      filter: none;
+    }
+  }
+}
+

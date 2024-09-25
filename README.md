@@ -13,6 +13,11 @@ ie whenever i find some new trick, i'll add it *WHILE* keeping it as performant 
  - Moving Gradient Border
  - Basic Grid design
  - Mostly CSS Based Open/Close Sidebar
+ - Glassmorphism
+ - Elements which look as if they Pop In/Out (shadows)
+ - Background Animation
+ - Cursor Sparkles
+ - Blurred => Visible Card
 
 ### Code
  - Docker
@@ -23,15 +28,6 @@ ie whenever i find some new trick, i'll add it *WHILE* keeping it as performant 
     `npm run dev`
 
 Afterwards head towards `http://localhost:3000`
-
-### CSS Effects | Route
- - Moving Border | /
- - Grid-Area Sidebar | /
- - Glassmorphism | /glass/
- - Background Animation | /glass/
- - Sparkles | /cursor/sparkles
- - Tracking Glow | /
-
 
 ### Links
  - **Tracking Glow:**  https://lulu-dev.vercel.app/articles/creating-a-mouse-tracking-glow-effect-in-react-js
