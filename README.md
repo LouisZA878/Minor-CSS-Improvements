@@ -17,6 +17,7 @@ ie whenever i find some new trick, i'll add it *WHILE* keeping it as performant 
  - Elements which look as if they Pop In/Out (shadows)
  - Background Animation
  - Cursor Sparkles
+ - Blurred => Visible Card
 
 ### Code
  - Docker
