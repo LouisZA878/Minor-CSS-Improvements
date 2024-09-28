@@ -124,6 +124,11 @@ const handleClick = () => {
             Profile Pop
           </Link>
         </li>
+        <li>
+          <Link href='/card/infocard'>
+            Progress Card
+          </Link>
+        </li>
       </div>
     </ul>
   </li>

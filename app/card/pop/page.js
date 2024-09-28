@@ -1,10 +1,12 @@
-import React from 'react'
+
 
 const page = () => {
   return (
     <div className='hover-pop-card-container'>
         <ul>
-            <li style={{ backgroundImage: `url(https://www.istockphoto.com/resources/images/PhotoFTLP/P3-iStock-SEPT-2162134325.jpg)`}}></li>
+            <li style={{ backgroundImage: `url(https://www.istockphoto.com/resources/images/PhotoFTLP/P3-iStock-SEPT-2162134325.jpg)`}}>
+              
+            </li>
             <li></li>
             <li></li>
         </ul>

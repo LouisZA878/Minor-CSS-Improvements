@@ -21,6 +21,8 @@ https://louisza878.github.io/Minor-CSS-Improvements/
  - Background Animation
  - Cursor Sparkles
  - Blurred => Visible Card
+ - Basic Manual Carousel
+ - Progress Card
 
 ### Code
  - Docker
