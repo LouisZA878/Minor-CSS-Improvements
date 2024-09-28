@@ -129,6 +129,11 @@ const handleClick = () => {
             Progress Card
           </Link>
         </li>
+        <li>
+          <Link href='/card/carousel'>
+            Carousel
+          </Link>
+        </li>
       </div>
     </ul>
   </li>
