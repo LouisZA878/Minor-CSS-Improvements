@@ -86,6 +86,11 @@ const handleClick = () => {
             Zoom
           </Link>
         </li>
+        <li>
+          <Link href='/parallax/swap'>
+            Layered
+          </Link>
+        </li>
       </div>
     </ul>
   </li>

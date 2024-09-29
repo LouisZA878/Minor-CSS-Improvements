@@ -11,6 +11,7 @@ https://louisza878.github.io/Minor-CSS-Improvements/
  - NextJS
  - Zustand
  - Docker
+ - Framer Motion 
 
 ### Added Effects
  - Moving Gradient Border
@@ -24,6 +25,7 @@ https://louisza878.github.io/Minor-CSS-Improvements/
  - Basic Manual Carousel
  - Progress Card
  - Parallax Zoom
+ - Layered Parallax
 
 ### Code
  - Docker
