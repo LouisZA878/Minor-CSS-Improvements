@@ -30,7 +30,8 @@ const [imageIndex, setImageIndex] = useState(0)
   return (
     <div className='carousel-container'>
         <div>
-          <section>
+          <section
+          >
           {
             imageUrl.map(url => (
               <img 

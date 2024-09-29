@@ -10,6 +10,7 @@ const [dropStatus, setDropStatus] = useState({
     cursor: false,
     shadow: false,
     card: false,
+    parallax: false
   })
 const { status, statusSwap } = useStatus()
 
@@ -55,6 +56,34 @@ const handleClick = () => {
         <li>
           <Link href='/cursor/sparkles'>
             Sparkles
+          </Link>
+        </li>
+      </div>
+    </ul>
+  </li>
+    <li>
+    <button
+      className="dropdown-btn"
+      onClick={() => {
+        setDropStatus(prev => {
+          return {
+            ...prev,
+            parallax: !prev.parallax
+        }
+        })
+        handleClick()
+      }}>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-118 120-398l66-50 294 228 294-228 66 50-360 280Zm0-202L120-600l360-280 360 280-360 280Zm0-280Zm0 178 230-178-230-178-230 178 230 178Z"/></svg>
+      <span>
+        Parallax
+      </span>
+      <svg className={dropStatus.parallax ? 'open' : ''} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+    </button>
+    <ul className={`sub-menu ${dropStatus.parallax ? 'show' : ''}`}>
+      <div>
+        <li>
+          <Link href='/parallax/multi'>
+            Zoom
           </Link>
         </li>
       </div>
@@ -140,5 +169,4 @@ const handleClick = () => {
   </>
   )
 }
-
 export default Items

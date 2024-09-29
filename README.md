@@ -23,6 +23,7 @@ https://louisza878.github.io/Minor-CSS-Improvements/
  - Blurred => Visible Card
  - Basic Manual Carousel
  - Progress Card
+ - Parallax Zoom
 
 ### Code
  - Docker
